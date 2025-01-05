@@ -1,0 +1,5 @@
+services:
+  pass-parameter:
+    image: skyfloatin/test-pass-parameter
+    environment:
+      - NUMBER=${NUM:-111}

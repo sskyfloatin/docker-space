@@ -1,0 +1,9 @@
+#skyfloatin/test-pass-parameter:latest
+#skyfloatin/test-pass-parameter:26-12-2024
+#skyfloatin/test-pass-parameter:v3
+
+services:
+  pass-parameter:
+    image: skyfloatin/test-pass-parameter:${VERSION}
+    environment:
+      - NUMBER=${NUM:-111}
