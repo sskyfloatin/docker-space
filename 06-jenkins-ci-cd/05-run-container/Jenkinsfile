@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+    environment {
+        NUMBER = 3
+    }
+    stages {
+        stage('stage-1') {
+            steps {
+                script {
+                    sh "docker run -e NUMBER=${env.NUMBER} skyfloatin/test-pass-parameter"
+                }
+            }
+        }
+        stage('stage-2') {
+            environment {
+                NUMBER = 6
+            }
+            steps {
+                script {
+                    sh "docker run -e NUMBER=${env.NUMBER} skyfloatin/test-pass-parameter"
+                }
+            }
+        }
+        stage('stage-3') {
+            steps {
+                script {
+                    sh "docker run -e NUMBER=${env.NUMBER} skyfloatin/test-pass-parameter"
+                }
+            }
+        }
+    }
+    post {
+        always {
+            script {
+                sh "docker system prune -f"
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    user: root # act as a root user with all privileges
+    ports:
+      - 8080:8080 # exposed ports for accessing UI
+      - 50000:50000 #exposed ports for accessing server
+    volumes:
+      - ./host-volumes/master:/var/jenkins_home # map jenkins container volume with host
