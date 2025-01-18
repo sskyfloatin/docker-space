@@ -7,3 +7,5 @@ services:
       - 50000:50000 #exposed ports for accessing server
     volumes:
       - ./host-volumes/master:/var/jenkins_home # map jenkins container volume with host
+    environment:
+      - JAVA_OPTS="-Dhudson.model.DirectoryBrowserSupport.CSP="
